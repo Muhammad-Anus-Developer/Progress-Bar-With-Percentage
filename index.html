@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="CodeHim">
+    <title>Progress Bar</title>
+<!-- ------------ Progress Bar ----------- -->
+<!-- Created By  -->
+  <style>
+ 
+
+
+.parent {
+  max-width: 600px;
+    min-width: 300px;
+    background-color: #c1c1c1;
+    height: 30px;
+    margin-top: 25px;
+    margin-bottom: 20px;
+    border-radius:6px;
+}
+
+.child {
+    width: 0%;
+    background-color: #CE3125;
+    height: 100%;
+    border-radius:6px;
+}
+
+
+.prog {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 27px;
+    color: #fff;
+    
+    font-weight: 500;
+}
+
+@media screen and (max-width: 700px) {
+    .container{
+        text-align: center;
+        margin:auto;
+        margin-top: 40px
+    }
+}
+  </style>
+  </head>
+  <body onload="RunProgressBar()">
+
+  
+
+
+  
+    <div class="parent">
+        <div class="child" style="text-align: center;"><span class="prog">0%</span></div>
+        
+    </div>
+    
+ 
+      
+  
+  <!-- Script JS -->
+  <script type="text/javascript">
+  var child = document.getElementsByClassName("child")[0],
+
+  progSpan = document.getElementsByClassName("prog")[0];
+
+//*************************
+
+var RunProgressBar = (function () {
+    var width = 0;
+
+    return function () {
+        var x = setInterval(function () {
+            if (width === 100) {
+                clearInterval(x);
+            } else {
+                width++;
+                child.style.width = width + "%";
+                progSpan.innerHTML = width + "%";
+            }
+        }, 60);
+    }
+})();
+
+
+</script>
+   
+  </body>
+</html>
